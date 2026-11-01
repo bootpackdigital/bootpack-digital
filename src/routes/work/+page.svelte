@@ -27,6 +27,7 @@
 	import TheDoctorsCbd from '../../images/work/the-doctors-cbd.jpg?w=320;480;640;800;960;1200&enhanced';
 	import ThermWise from '../../images/work/thermwise.jpg?w=320;480;640;800;960;1200&enhanced';
 	import WasatchCovers from '../../images/work/wasatch-covers.jpg?w=320;480;640;800;960;1200&enhanced';
+	import WasatchBlade from '../../images/work/wasatch-blade.jpg?w=320;480;640;800;960;1200&enhanced';
 	import UtahMountainAdventures from '../../images/work/utah-mountain-adventures.jpg?w=320;480;640;800;960;1200&enhanced';
 	import WasatchFabrication from '../../images/work/wasatch-fabrication.jpg?w=320;480;640;800;960;1200&enhanced';
 </script>
@@ -253,6 +254,14 @@
 				linkText="Visit Hanks Garage Venue"
 				poster={Hanks}
 				title="Hanks Garage Venue"
+				lazy={true}
+			/>
+			<WorkItem
+				description="An online store for pocket knives from leading makers. We built Wasatch Blade's storefront to make it easy to browse the catalog, find a favorite, and buy with confidence."
+				link="https://wasatchblade.com/"
+				linkText="Visit Wasatch Blade"
+				poster={WasatchBlade}
+				title="Wasatch Blade"
 				lazy={true}
 			/>
 			<WorkItem
