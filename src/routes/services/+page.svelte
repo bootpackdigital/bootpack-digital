@@ -108,7 +108,7 @@
 
 <section class="px-4 pt-16 pb-14 bg-white sm:px-6 md:pt-24 md:pb-20 lg:px-8">
 	<div class="mx-auto max-w-7xl">
-		<div class="grid gap-6 items-end md:grid-cols-[1fr_auto] md:gap-12">
+		<div class="grid gap-6 items-end xl:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] xl:gap-12">
 			<div>
 				<p class="text-sm font-bold tracking-[0.18em] text-orange-700 uppercase">Services</p>
 				<h1
@@ -117,7 +117,7 @@
 					Design, web, mobile, and SEO under one roof
 				</h1>
 			</div>
-			<p class="max-w-md text-lg leading-8 text-navy-600 md:text-right">
+			<p class="max-w-xl text-lg leading-8 text-navy-600 xl:text-right">
 				Pick the one you need or combine them. Here's exactly what each one covers.
 			</p>
 		</div>
@@ -262,20 +262,20 @@
 
 <section class="px-4 py-16 bg-navy-800 sm:px-6 md:py-24 lg:px-8 lg:py-28">
 	<div class="mx-auto max-w-7xl">
-		<div class="grid gap-6 items-end mb-12 md:grid-cols-[1fr_auto] md:mb-16">
+		<div class="grid gap-6 items-end mb-12 md:mb-16 xl:grid-cols-[minmax(0,1fr)_minmax(0,28rem)] xl:gap-12">
 			<div>
 				<p class="text-sm font-bold tracking-[0.16em] text-orange-300 uppercase">How it goes</p>
 				<h2 class="mt-3 text-3xl font-bold tracking-tight text-white sm:text-4xl">
 					What working with us looks like
 				</h2>
 			</div>
-			<p class="max-w-md text-base leading-7 text-navy-100 md:text-right">
+			<p class="max-w-xl text-base leading-7 text-navy-100 xl:text-right">
 				No account managers, no handoffs to a team you've never met. You work directly with the
 				people building your project.
 			</p>
 		</div>
 
-		<ol class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
+		<ol class="grid gap-6 md:grid-cols-2 xl:grid-cols-4 xl:gap-8">
 			{#each steps as step (step.number)}
 				<li class="p-7 rounded-2xl border bg-navy-900/40 border-navy-600">
 					<p class="text-3xl font-extrabold tracking-tight text-blue-300">{step.number}</p>
