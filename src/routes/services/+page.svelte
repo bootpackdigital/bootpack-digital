@@ -3,14 +3,7 @@
 	import ContactBanner from '../../components/contact-banner.svelte';
 	import LinkArrow from '../../components/link-arrow.svelte';
 	import Seo from '../../components/seo.svelte';
-	import TopoHeroBg from '../../components/topo-hero-bg.svelte';
 	import { services } from '#lib/data/services.js';
-
-	const facts = [
-		{ value: 'Design and development', label: 'What we handle' },
-		{ value: 'Web, iOS and Android', label: 'Where we build' },
-		{ value: 'Built into every build', label: 'How we treat SEO' }
-	];
 
 	const steps = [
 		{
@@ -113,142 +106,159 @@
 	jsonLd={[servicesJsonLd, faqJsonLd]}
 />
 
-<section class="overflow-hidden relative bg-blue-50">
-	<TopoHeroBg />
-	<div class="relative px-4 py-16 mx-auto max-w-7xl sm:px-6 md:py-24 lg:px-8 lg:py-28">
-		<div class="grid gap-8 items-end lg:grid-cols-[minmax(0,1.35fr)_minmax(20rem,0.65fr)] lg:gap-20">
+<section class="px-4 pt-16 pb-14 bg-white sm:px-6 md:pt-24 md:pb-20 lg:px-8">
+	<div class="mx-auto max-w-7xl">
+		<div class="grid gap-6 items-end md:grid-cols-[1fr_auto] md:gap-12">
 			<div>
-				<p class="mb-5 text-sm font-bold tracking-[0.18em] text-orange-700 uppercase">Services</p>
+				<p class="text-sm font-bold tracking-[0.18em] text-orange-700 uppercase">Services</p>
 				<h1
-					class="max-w-4xl text-4xl font-extrabold tracking-tight leading-[1.04] text-navy-700 text-balance sm:text-5xl lg:text-6xl xl:text-7xl"
+					class="mt-4 max-w-3xl text-4xl font-extrabold tracking-tight leading-[1.08] text-navy-700 text-balance sm:text-5xl lg:text-6xl"
 				>
-					Design and development
-					<span class="block text-blue-600">for web and mobile, built to be found</span>
+					Design, web, mobile, and SEO under one roof
 				</h1>
 			</div>
-			<div class="pb-1">
-				<p class="max-w-xl text-lg leading-8 text-navy-600">
-					One team for the whole build. We design it, we develop it, and we make sure search engines
-					can actually read it.
-				</p>
-				<div class="flex flex-wrap gap-x-6 gap-y-4 items-center mt-7">
-					<a
-						class="inline-flex items-center py-3 px-5 text-base font-semibold text-white bg-navy-700 rounded-lg transition-colors hover:bg-navy-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-navy-600"
-						href={resolve('contact')}
-					>Request a Free Quote</a>
-
-					<a
-						class="inline-flex items-center font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-600"
-						href={resolve('work')}
-					>
-						See the work we've shipped
-						<LinkArrow class="ml-2" />
-					</a>
-				</div>
-			</div>
-		</div>
-
-		<dl class="grid overflow-hidden gap-px mt-14 rounded-xl md:grid-cols-3 md:mt-20">
-			{#each facts as fact (fact.label)}
-				<div class="px-6 py-7 bg-white/80">
-					<dt class="text-xs font-bold tracking-[0.16em] text-orange-700 uppercase">
-						{fact.label}
-					</dt>
-					<dd class="mt-2 text-2xl font-bold tracking-tight text-navy-700 xl:text-3xl">
-						{fact.value}
-					</dd>
-				</div>
-			{/each}
-		</dl>
-	</div>
-</section>
-
-<section class="px-4 py-16 bg-white sm:px-6 md:py-24 lg:px-8 lg:py-28">
-	<div class="mx-auto max-w-7xl">
-		<div class="grid gap-6 items-end mb-12 md:grid-cols-[1fr_auto] md:mb-16">
-			<div>
-				<p class="text-sm font-bold tracking-[0.16em] text-orange-700 uppercase">What we do</p>
-				<h2 class="mt-3 text-3xl font-bold tracking-tight text-navy-700 sm:text-4xl">
-					Four things we do well
-				</h2>
-			</div>
-			<p class="max-w-md text-base leading-7 text-gray-600 md:text-right">
-				Take one of them or take all four. Most projects end up using more than one, and they work
-				better together than apart.
+			<p class="max-w-md text-lg leading-8 text-navy-600 md:text-right">
+				Pick the one you need or combine them. Here's exactly what each one covers.
 			</p>
 		</div>
 
-		<div class="grid gap-6 lg:grid-cols-2 lg:gap-8">
-			{#each services as service (service.id)}
-				<article
-					class="flex flex-col p-7 bg-blue-50 rounded-2xl border border-blue-200 scroll-mt-24 sm:p-9"
-					id={service.id}
-				>
-					<div class="flex gap-4 items-center">
-						<span
-							class="inline-flex justify-center items-center bg-white rounded-xl border border-blue-200 size-12 shrink-0"
+		<nav aria-label="Services" class="mt-12 md:mt-16">
+			<ol class="grid border-t border-blue-200 sm:grid-cols-2 lg:grid-cols-4">
+				{#each services as service, i (service.id)}
+					<li
+						class="border-b border-blue-200 sm:odd:border-r lg:border-b-0 lg:border-r lg:last:border-r-0"
+					>
+						<a
+							class="group flex flex-col h-full py-6 transition-colors sm:px-6 hover:bg-blue-50 focus-visible:outline-2 focus-visible:-outline-offset-2 focus-visible:outline-navy-600 lg:py-8"
+							href="#{service.id}"
 						>
-							<svg
-								aria-hidden="true"
-								class="size-6 text-blue-600"
-								fill="none"
-								stroke="currentColor"
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="1.5"
-								viewBox="0 0 24 24"
-								xmlns="http://www.w3.org/2000/svg"
-							><path d={service.path}></path></svg>
-						</span>
-						<p class="text-xs font-bold tracking-[0.16em] text-orange-700 uppercase">
-							{service.eyebrow}
-						</p>
-					</div>
-
-					<h3
-						class="mt-5 text-2xl font-bold tracking-tight text-navy-700"
-					>{service.title}</h3>
-
-					<p class="mt-3 text-base leading-7 text-gray-600">{service.summary}</p>
-
-					<h4
-						class="mt-7 text-xs font-bold tracking-[0.16em] text-navy-600 uppercase"
-					>What you get</h4>
-
-					<ul class="grid gap-2 mt-4">
-						{#each service.deliverables as deliverable (deliverable)}
-							<li class="flex gap-3 items-start text-base leading-7 text-gray-600">
+							<div class="flex justify-between items-center">
+								<span class="text-sm font-bold tracking-[0.16em] text-orange-700 tabular-nums">
+									{String(i + 1).padStart(2, '0')}
+								</span>
 								<svg
 									aria-hidden="true"
-									class="mt-1.5 text-blue-600 size-4 shrink-0"
+									class="size-6 text-blue-600"
 									fill="none"
 									stroke="currentColor"
 									stroke-linecap="round"
 									stroke-linejoin="round"
-									stroke-width="2.5"
+									stroke-width="1.5"
 									viewBox="0 0 24 24"
 									xmlns="http://www.w3.org/2000/svg"
-								><path d="M5 13l4 4L19 7"></path></svg>
-
-								{deliverable}
-							</li>
-						{/each}
-					</ul>
-
-					<ul class="flex flex-wrap gap-2 mt-auto pt-8">
-						{#each service.tags as tag (tag)}
-							<li
-								class="py-1.5 px-3 text-sm font-semibold bg-white rounded-full border border-blue-200 text-navy-600"
+								><path d={service.path}></path></svg>
+							</div>
+							<span class="mt-5 text-xl font-bold tracking-tight text-navy-700">
+								{service.shortTitle}
+							</span>
+							<span class="mt-2 text-base leading-7 text-gray-600">{service.shortSummary}</span>
+							<span
+								class="inline-flex items-center pt-5 mt-auto text-sm font-semibold text-blue-700 group-hover:text-blue-500"
 							>
-								{tag}
-							</li>
-						{/each}
-					</ul>
-				</article>
-			{/each}
-		</div>
+								What's included
+								<LinkArrow class="ml-1.5 rotate-90 transition-transform group-hover:translate-y-0.5" />
+							</span>
+						</a>
+					</li>
+				{/each}
+			</ol>
+		</nav>
 	</div>
 </section>
+
+{#each services as service, i (service.id)}
+	<section
+		class={[
+			'px-4 py-16 scroll-mt-16 sm:px-6 md:py-24 lg:px-8',
+			i % 2 === 0 ? 'bg-blue-50' : 'bg-white'
+		]}
+		aria-labelledby="{service.id}-title"
+		id={service.id}
+	>
+		<div
+			class="grid gap-10 mx-auto max-w-7xl lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-20"
+		>
+			<div class="lg:sticky lg:top-28 lg:self-start">
+				<p
+					aria-hidden="true"
+					class="text-7xl font-extrabold tracking-tight leading-none text-blue-200 tabular-nums sm:text-8xl"
+				>
+					{String(i + 1).padStart(2, '0')}
+				</p>
+				<div class="flex gap-3 items-center mt-6">
+					<svg
+						aria-hidden="true"
+						class="size-6 text-blue-600"
+						fill="none"
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="1.5"
+						viewBox="0 0 24 24"
+						xmlns="http://www.w3.org/2000/svg"
+					><path d={service.path}></path></svg>
+					<p class="text-sm font-bold tracking-[0.16em] text-orange-700 uppercase">
+						{service.eyebrow}
+					</p>
+				</div>
+				<h2
+					class="mt-3 text-3xl font-bold tracking-tight text-navy-700 text-balance sm:text-4xl"
+					id="{service.id}-title"
+				>
+					{service.title}
+				</h2>
+
+				<ul aria-label="Tools and focus areas" class="flex flex-wrap gap-2 mt-6">
+					{#each service.tags as tag (tag)}
+						<li
+							class="py-1.5 px-3 text-sm font-semibold bg-white rounded-full border border-blue-200 text-navy-600"
+						>
+							{tag}
+						</li>
+					{/each}
+				</ul>
+			</div>
+
+			<div>
+				<p class="text-xl leading-9 text-navy-600">{service.summary}</p>
+
+				<h3 class="mt-10 text-xs font-bold tracking-[0.16em] text-navy-600 uppercase">
+					What you get
+				</h3>
+
+				<ul class="mt-4 border-t border-blue-200">
+					{#each service.deliverables as deliverable (deliverable)}
+						<li
+							class="flex gap-4 items-start py-4 text-lg leading-7 border-b border-blue-200 text-navy-700"
+						>
+							<svg
+								aria-hidden="true"
+								class="mt-1 text-blue-600 size-5 shrink-0"
+								fill="none"
+								stroke="currentColor"
+								stroke-linecap="round"
+								stroke-linejoin="round"
+								stroke-width="2.5"
+								viewBox="0 0 24 24"
+								xmlns="http://www.w3.org/2000/svg"
+							><path d="M5 13l4 4L19 7"></path></svg>
+
+							{deliverable}
+						</li>
+					{/each}
+				</ul>
+
+				<a
+					class="inline-flex items-center mt-8 font-semibold text-blue-700 underline decoration-blue-300 underline-offset-4 hover:text-blue-500 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-navy-600"
+					href={resolve('contact')}
+				>
+					Get a quote for this<span class="sr-only"> service: {service.title}</span>
+					<LinkArrow class="ml-2" />
+				</a>
+			</div>
+		</div>
+	</section>
+{/each}
 
 <section class="px-4 py-16 bg-navy-800 sm:px-6 md:py-24 lg:px-8 lg:py-28">
 	<div class="mx-auto max-w-7xl">
