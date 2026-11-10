@@ -121,11 +121,11 @@
 				caseStudyLink="/case-studies/energy-safe-kids"
 			/>
 			<WorkItem
-				description="A Bootpack Digital product that gives small teams a practical hiring workflow without a bloated ATS. Publish branded job listings or embed openings in your own site, build custom application forms for each role, and manage candidates, notes, interviews, and analytics from a single dashboard."
-				link="https://joblisting.app/"
-				linkText="Visit JobListing"
-				poster={JobListing}
-				title="JobListing.app"
+				description="A Bootpack Digital service that makes it simple to collect, organize, and act on customer feedback. Custom feedback boards, embeddable widgets, and integrations with the tools your team already uses to deliver reviews and feature requests right into your workflow."
+				link="https://easycustomerfeedback.com/"
+				linkText="Visit EasyCustomerFeedback"
+				poster={EasyCustomerFeedback}
+				title="EasyCustomerFeedback"
 			/>
 			<WorkItem
 				description="A Bootpack Digital product that ends the back and forth of finding a time to meet. Share one public or private booking link, connect the Google and Apple calendars that matter, and let guests pick from the times that already work for you. Availability rules, time zones, and reminders are handled automatically."
@@ -157,11 +157,11 @@
 				title="National Energy Foundation"
 			/>
 			<WorkItem
-				description="A Bootpack Digital service that makes it simple to collect, organize, and act on customer feedback. Custom feedback boards, embeddable widgets, and integrations with the tools your team already uses to deliver reviews and feature requests right into your workflow."
-				link="https://easycustomerfeedback.com/"
-				linkText="Visit EasyCustomerFeedback"
-				poster={EasyCustomerFeedback}
-				title="EasyCustomerFeedback"
+				description="A Bootpack Digital product that gives small teams a practical hiring workflow without a bloated ATS. Publish branded job listings or embed openings in your own site, build custom application forms for each role, and manage candidates, notes, interviews, and analytics from a single dashboard."
+				link="https://joblisting.app/"
+				linkText="Visit JobListing"
+				poster={JobListing}
+				title="JobListing.app"
 			/>
 			<WorkItem
 				description="They were tired of their WordPress site's performance so we rebuilt the thing using modern technologies. The site now loads in a snap. Check it out for yourself. Conversion rates are dramatically up now that customers aren't waiting seconds for a single page to load."
