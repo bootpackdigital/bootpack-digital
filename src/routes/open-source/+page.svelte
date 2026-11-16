@@ -125,7 +125,7 @@
 		</p>
 		<a
 			class="mt-7 inline-flex items-center gap-2 font-semibold text-orange-700 underline decoration-orange-300 underline-offset-4 hover:text-orange-800"
-			href="https://github.com/michaelbonner?tab=repositories&amp;type=source"
+			href="https://github.com/orgs/bootpackdigital/repositories?type=source"
 			data-sveltekit-reload>Explore our GitHub projects <LinkArrow /></a
 		>
 	</div>
@@ -174,7 +174,7 @@
 				<div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
 					<a
 						class="inline-flex items-center gap-2 rounded-md bg-navy-700 px-5 py-3 font-semibold text-white transition-colors hover:bg-navy-900"
-						href={`https://github.com/michaelbonner/${project.repo}`}
+						href={`https://github.com/bootpackdigital/${project.repo}`}
 						data-sveltekit-reload
 						aria-label={`View ${project.name} on GitHub`}>View on GitHub <LinkArrow /></a
 					>
@@ -189,7 +189,7 @@
 				{#if project.image}
 					<a
 						aria-label={`View ${project.name} on GitHub`}
-						href={`https://github.com/michaelbonner/${project.repo}`}
+						href={`https://github.com/bootpackdigital/${project.repo}`}
 						data-sveltekit-reload
 						class="block overflow-hidden rounded-xl border border-blue-200 bg-blue-50 p-3 shadow-sm transition-shadow hover:shadow-lg sm:p-5"
 					>
