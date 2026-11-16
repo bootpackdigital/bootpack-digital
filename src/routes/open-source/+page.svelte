@@ -1,119 +1,239 @@
 <script lang="ts">
-	import clsx from 'clsx';
 	import ContactBanner from '../../components/contact-banner.svelte';
 	import Seo from '../../components/seo.svelte';
+	import TopoHeroBg from '../../components/topo-hero-bg.svelte';
+	import LinkArrow from '../../components/link-arrow.svelte';
+	import PageSpeed from '../../images/open-source/pagespeed.jpg?w=480;800;1200;1600&enhanced';
+	import Repositories from '../../images/open-source/repositories.jpg?w=480;800;1200;1600&enhanced';
 
 	const projects = [
 		{
+			id: 'pagespeed',
 			name: 'PageSpeed Score Tracker',
-			emoji: '⚡',
-			description: `Keep track of your PageSpeed Insights scores. Just add your URLs to the config and deploy
-					the code. Then you'll see a simple view of your PageSpeed scores. <a
-						class="underline"
-						data-sveltekit-reload
-						href="https://pagespeed.bootpack.dev/bootpackdigital">Here's what it looks like for this site</a>`,
-			link: 'https://github.com/michaelbonner/pagespeed'
+			category: 'Website performance',
+			headline: 'Keep an eye on the speed of your sites.',
+			description:
+				'A single performance test is a snapshot. PageSpeed Score Tracker gives you a place to check your websites and follow their performance over time, so you can see how changes affect the experience.',
+			features: [
+				'Bring your URLs together in one dashboard.',
+				'Review PageSpeed Insights results in a readable view.',
+				'Use performance history to spot changes over time.'
+			],
+			start:
+				'Add your sites to the configuration and deploy your own instance. Explore our dashboard to see how we use it for Bootpack Digital.',
+			repo: 'pagespeed',
+			demo: 'https://pagespeed.bootpack.dev/bootpackdigital',
+			demoLabel: 'View our scores',
+			image: PageSpeed,
+			alt: 'PageSpeed Score Tracker dashboard showing mobile and desktop website scores.',
+			caption: 'Mobile and desktop PageSpeed results for Bootpack Digital.',
+			code: '',
+			codeTitle: ''
 		},
 		{
+			id: 'screenshot-maker',
 			name: 'Screenshot Maker',
-			emoji: '🌌',
+			category: 'Browser automation',
+			headline: 'Turn a URL into a screenshot.',
 			description:
-				'An easy way to generate screenshots of websites. Just add the URL and it will generate a screenshot.',
-			link: 'https://github.com/michaelbonner/screenshot-maker'
+				'Capture website previews without opening a browser and cropping each image by hand. Screenshot Maker uses Playwright to generate screenshots through a simple API, useful for visual comparisons, portfolios, and site directories.',
+			features: [
+				'Set the viewport width and height for the page you want to capture.',
+				'Adjust image scale and quality, or capture the full page.',
+				'Control access with an API key or allowed referrers.'
+			],
+			start:
+				'Clone the project, copy the environment example, and run it locally or deploy it on Vercel. The README explains the available capture options and access controls.',
+			repo: 'screenshot-maker',
+			demo: '',
+			demoLabel: '',
+			image: null,
+			alt: '',
+			caption: 'Example request: capture a desktop viewport at half size.',
+			codeTitle: 'A screenshot from a single request',
+			code: 'GET /api/screenshot\n\n?url=https%3A%2F%2Fbootpackdigital.com\n&width=1440\n&height=900\n&scale=0.5\n&quality=80'
 		},
 		{
+			id: 'redirects-wizard',
 			name: 'Redirects Wizard',
-			emoji: '⏭️',
+			category: 'Site migrations',
+			headline: 'Give your old links a new home.',
 			description:
-				"Sometimes when you're migrating a site you have a lot of links you need to redirect somewhere else. Redirects Wizard lets you do it much faster.",
-			link: 'https://github.com/michaelbonner/redirects-wizard'
+				'A site migration should not leave visitors at a dead end. Redirects Wizard helps you organize existing URLs, find unresolved pages, and build redirect rules before and after launch.',
+			features: [
+				'Group production URLs into batches and check their status against a new site.',
+				'Assign redirect targets and inspect redirect chains.',
+				'Generate rules for Apache, nginx, Caddy, Netlify, Next.js, and Astro.'
+			],
+			start:
+				'Create a batch for your staging or live site, add your old URLs, and map the ones that need a new destination. Export the rules, then recheck your URLs after applying them. A CLI supports scripted workflows, too.',
+			repo: 'redirects-wizard',
+			demo: 'https://redirectswizard.com',
+			demoLabel: 'Visit Redirects Wizard',
+			image: null,
+			alt: '',
+			caption: 'An example migration: map old URLs to their new destinations.',
+			codeTitle: 'Old links. Clear destinations.',
+			code: '/about-us       →  /about\n/our-work       →  /work\n/get-in-touch   →  /contact\n\nAdd URLs → Check → Map → Export\n\nApache · nginx · Caddy · Netlify\nNext.js · Astro'
 		},
 		{
+			id: 'github-repositories-viewer',
 			name: 'GitHub Repositories Viewer',
-			emoji: '📑',
+			category: 'Developer workflow',
+			headline: 'See your repositories in one place.',
 			description:
-				"GitHub doesn't make it easy to find who has access to what repos. This tool allows you to view all of your repos in a simple, easy-to-read format. It also helps you find open pull requests.",
-			link: 'https://github.com/michaelbonner/github-repositories-viewer'
+				'When work spans multiple repositories, keeping track of access and open pull requests takes time. This viewer brings repositories and contributors into a straightforward overview to help you find what needs attention.',
+			features: [
+				'Browse your repositories in an easy-to-scan view.',
+				'See contributors alongside the projects they work on.',
+				'Find open pull requests across your repositories.'
+			],
+			start:
+				'Run your own instance and follow the repository setup instructions to connect it to GitHub. Use the overview to review your projects and the people working on them.',
+			repo: 'github-repositories-viewer',
+			demo: '',
+			demoLabel: '',
+			image: Repositories,
+			alt: 'GitHub Repositories Viewer showing a list of repositories and their contributors.',
+			caption: 'The repository overview, with contributors visible alongside each project.',
+			code: '',
+			codeTitle: ''
 		}
 	];
 </script>
 
 <Seo
 	title="Open-source Projects from Bootpack Digital"
-	description="Open-source software is invaluable for the modern web. We are committed to sharing tools we think will strengthen the web development community."
+	description="Explore our open-source tools for PageSpeed tracking, website screenshots, redirects, and GitHub workflows. See how they work and get the code."
 	canonical="/open-source"
 	ogImage="/og-open-source.jpg"
 	ogImageAlt="Open-source projects from Bootpack Digital"
 />
 
-<div class="px-4 pt-16 pb-20 bg-white sm:px-6 lg:px-8 lg:pb-28">
-	<div class="mx-auto max-w-7xl">
-		<div class="text-gray-600">
-			<div class="prose lg:prose-lg text-gray-600">
-				<h1 class="tracking-tight text-navy-600">Open-source Projects</h1>
-				<div>
-					<p>
-						Most of the web is built on open-source projects. Since they're such a
-						valuable resource, we are committed to sharing tools we think will strengthen the web
-						development community.
-					</p>
-				</div>
-			</div>
-
-			<div>
-				<a
-					class={clsx(
-						'flex gap-2 items-center bg-white rounded-lg transition-colors group underline',
-						'hover:text-navy-800'
-					)}
-					data-sveltekit-reload
-					href="https://github.com/michaelbonner?tab=repositories&q=&type=source&language=&sort=&utm_source=bootpackdigital.com/open-source"
-				>
-					<svg
-						class="h-5 text-gray-600 transition-transform scale-90 fill-current group-hover:text-blue-600 group-hover:scale-100"
-						viewBox="0 0 512 512"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<title>GitHub</title>
-						<path
-							d="M256 32C132.3 32 32 134.9 32 261.7c0 101.5 64.2 187.5 153.2 217.9a17.56 17.56 0 003.8.4c8.3 0 11.5-6.1 11.5-11.4 0-5.5-.2-19.9-.3-39.1a102.4 102.4 0 01-22.6 2.7c-43.1 0-52.9-33.5-52.9-33.5-10.2-26.5-24.9-33.6-24.9-33.6-19.5-13.7-.1-14.1 1.4-14.1h.1c22.5 2 34.3 23.8 34.3 23.8 11.2 19.6 26.2 25.1 39.6 25.1a63 63 0 0025.6-6c2-14.8 7.8-24.9 14.2-30.7-49.7-5.8-102-25.5-102-113.5 0-25.1 8.7-45.6 23-61.6-2.3-5.8-10-29.2 2.2-60.8a18.64 18.64 0 015-.5c8.1 0 26.4 3.1 56.6 24.1a208.21 208.21 0 01112.2 0c30.2-21 48.5-24.1 56.6-24.1a18.64 18.64 0 015 .5c12.2 31.6 4.5 55 2.2 60.8 14.3 16.1 23 36.6 23 61.6 0 88.2-52.4 107.6-102.3 113.3 8 7.1 15.2 21.1 15.2 42.5 0 30.7-.3 55.5-.3 63 0 5.4 3.1 11.5 11.4 11.5a19.35 19.35 0 004-.4C415.9 449.2 480 363.1 480 261.7 480 134.9 379.7 32 256 32z"
-						/>
-					</svg>
-					<p class="mt-2 mb-2">See all of our public projects on GitHub</p>
-				</a>
-			</div>
-		</div>
-		<div class={clsx('grid gap-8 mt-6', 'md:grid-cols-2', 'lg:mt-10 lg:gap-12', 'xl:gap-x-24')}>
-			{#each projects as project (project.name)}
-				<div class="prose text-gray-600">
-					<a class="no-underline hover:underline" data-sveltekit-reload href={project.link}>
-						<h2 class="text-xl lg:text-2xl text-navy-600">
-							{project.name}
-							{project.emoji}
-						</h2>
-					</a>
-					<p>
-						<!-- eslint-disable svelte/no-at-html-tags -->
-						{@html project.description}
-						<!-- eslint-enable svelte/no-at-html-tags -->
-					</p>
-					<p>
-						<a
-							class={clsx(
-								'text-base font-semibold leading-6 text-orange-700 transition duration-150 ease-in-out',
-								'hover:text-orange-500 hover:underline'
-							)}
-							data-sveltekit-reload
-							href={project.link}
-						>
-							See {project.name} code on GitHub
-						</a>
-					</p>
-				</div>
-			{/each}
-		</div>
+<section class="relative overflow-hidden bg-blue-50">
+	<TopoHeroBg />
+	<div class="relative mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-24">
+		<p class="mb-4 text-sm font-semibold tracking-widest text-blue-700 uppercase">
+			Built to be shared
+		</p>
+		<h1 class="max-w-4xl text-4xl font-bold tracking-tight text-navy-700 sm:text-5xl lg:text-6xl">
+			Open-source projects.<br />Practical tools for the web.
+		</h1>
+		<p class="mt-6 max-w-2xl text-lg leading-relaxed text-gray-600">
+			Open-source software makes our work possible. These are some of the tools we’re sharing back:
+			small, focused projects that help with the everyday work of building and maintaining websites.
+		</p>
+		<a
+			class="mt-7 inline-flex items-center gap-2 font-semibold text-orange-700 underline decoration-orange-300 underline-offset-4 hover:text-orange-800"
+			href="https://github.com/michaelbonner?tab=repositories&amp;type=source"
+			data-sveltekit-reload>Explore our GitHub projects <LinkArrow /></a
+		>
 	</div>
+</section>
+
+<nav aria-label="Projects on this page" class="border-b border-blue-100 bg-white">
+	<div class="mx-auto flex max-w-7xl flex-wrap gap-x-8 gap-y-3 px-4 py-5 sm:px-6 lg:px-8">
+		{#each projects as project (project.id)}
+			<a
+				class="text-sm font-semibold text-navy-700 underline-offset-4 hover:underline"
+				href={`#${project.id}`}>{project.name}</a
+			>
+		{/each}
+	</div>
+</nav>
+
+<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+	{#each projects as project, index (project.id)}
+		<section
+			id={project.id}
+			aria-labelledby={`${project.id}-title`}
+			class="grid scroll-mt-8 items-center gap-10 border-b border-blue-100 py-14 last:border-0 lg:grid-cols-2 lg:gap-16 lg:py-20"
+		>
+			<div class:lg:order-2={index % 2 !== 0}>
+				<p class="mb-3 text-sm font-semibold tracking-wider text-blue-700 uppercase">
+					{project.category}
+				</p>
+				<h2
+					id={`${project.id}-title`}
+					class="text-3xl font-bold tracking-tight text-navy-700 sm:text-4xl"
+				>
+					{project.name}
+				</h2>
+				<p class="mt-4 text-xl font-medium text-navy-600">{project.headline}</p>
+				<p class="mt-4 leading-relaxed text-gray-600">{project.description}</p>
+				<ul class="mt-6 space-y-3 text-gray-600">
+					{#each project.features as feature (feature)}
+						<li class="flex gap-3">
+							<span aria-hidden="true" class="font-bold text-blue-600">✓</span><span>{feature}</span
+							>
+						</li>
+					{/each}
+				</ul>
+				<h3 class="mt-7 font-semibold text-navy-700">Get started</h3>
+				<p class="mt-2 leading-relaxed text-gray-600">{project.start}</p>
+				<div class="mt-7 flex flex-wrap items-center gap-x-6 gap-y-4">
+					<a
+						class="inline-flex items-center gap-2 rounded-md bg-navy-700 px-5 py-3 font-semibold text-white transition-colors hover:bg-navy-900"
+						href={`https://github.com/michaelbonner/${project.repo}`}
+						data-sveltekit-reload
+						aria-label={`View ${project.name} on GitHub`}>View on GitHub <LinkArrow /></a
+					>
+					{#if project.demo}<a
+							class="inline-flex items-center gap-2 font-semibold text-orange-700 underline-offset-4 hover:underline"
+							href={project.demo}
+							data-sveltekit-reload>{project.demoLabel} <LinkArrow /></a
+						>{/if}
+				</div>
+			</div>
+			<figure class="min-w-0" class:lg:order-1={index % 2 !== 0}>
+				{#if project.image}
+					<a
+						aria-label={`View ${project.name} on GitHub`}
+						href={`https://github.com/michaelbonner/${project.repo}`}
+						data-sveltekit-reload
+						class="block overflow-hidden rounded-xl border border-blue-200 bg-blue-50 p-3 shadow-sm transition-shadow hover:shadow-lg sm:p-5"
+					>
+						<enhanced:img
+							src={project.image}
+							alt={project.alt}
+							class="h-auto w-full rounded-md border border-gray-200"
+							sizes="(min-width: 1024px) 560px, 100vw"
+							loading="lazy"
+						/>
+					</a>
+				{:else}
+					<div class="overflow-hidden rounded-xl border border-navy-700 bg-navy-900 shadow-sm">
+						<div class="flex items-center gap-2 border-b border-white/15 px-5 py-4">
+							<span class="size-2.5 rounded-full bg-orange-400"></span><span
+								class="size-2.5 rounded-full bg-blue-300"
+							></span><span class="size-2.5 rounded-full bg-blue-600"></span><span
+								class="ml-3 text-sm text-blue-200">{project.codeTitle}</span
+							>
+						</div>
+						<pre
+							class="overflow-x-auto p-5 text-xs leading-loose text-blue-100 sm:p-8 sm:text-sm"><code
+								>{project.code}</code
+							></pre>
+					</div>
+				{/if}
+				<figcaption class="mt-4 text-sm leading-relaxed text-gray-500">
+					{project.caption}
+				</figcaption>
+			</figure>
+		</section>
+	{/each}
 </div>
+
+<section class="bg-blue-50 px-4 py-14 sm:px-6 lg:px-8">
+	<div class="mx-auto max-w-3xl text-center">
+		<h2 class="text-2xl font-bold text-navy-700 sm:text-3xl">Found a bug? Have an idea?</h2>
+		<p class="mt-4 leading-relaxed text-gray-600">
+			Each project has a home on GitHub. Read the setup instructions, open an issue with what you
+			found, or share an improvement through a pull request. Check the repository’s license before
+			using the code in your own project.
+		</p>
+	</div>
+</section>
 
 <ContactBanner
 	textLine1="Ready to build something together?"
