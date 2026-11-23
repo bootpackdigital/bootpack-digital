@@ -29,6 +29,7 @@
 	import WasatchCovers from '../../images/work/wasatch-covers.jpg?w=320;480;640;800;960;1200&enhanced';
 	import WasatchBlade from '../../images/work/wasatch-blade.jpg?w=320;480;640;800;960;1200&enhanced';
 	import UtahMountainAdventures from '../../images/work/utah-mountain-adventures.jpg?w=320;480;640;800;960;1200&enhanced';
+	import WhatToDoInSaltLake from '../../images/work/what-to-do-in-salt-lake.jpg?w=320;480;640;800;960;1200&enhanced';
 	import WasatchFabrication from '../../images/work/wasatch-fabrication.jpg?w=320;480;640;800;960;1200&enhanced';
 </script>
 
@@ -133,6 +134,15 @@
 				linkText="Visit Book a Meeting Time"
 				poster={BookAMeetingTime}
 				title="Book a Meeting Time"
+			/>
+			<WorkItem
+				description="A Bootpack Digital product that collects upcoming events, venues, and things to do around Salt Lake City in one place. Search by category, browse by date, and find your next night out without digging through a dozen different sites, on the web or with the iOS and Android apps."
+				link="https://whattodoinsaltlake.com/"
+				linkText="Visit What To Do In Salt Lake"
+				appStore="https://apps.apple.com/app/what-to-do-in-salt-lake/id6835025601"
+				playStore="https://play.google.com/store/apps/details?id=com.bootpackdigital.whattodoinsaltlake"
+				poster={WhatToDoInSaltLake}
+				title="What To Do In Salt Lake"
 			/>
 			<WorkItem
 				description="A leading Utah law firm specializing in catastrophic injury and wrongful death cases. With a proven track record of record-breaking verdicts and settlements, DKOW's experienced trial attorneys provide compassionate, results-driven representation for clients across a wide range of personal injury matters."

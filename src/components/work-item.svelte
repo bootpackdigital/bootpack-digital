@@ -11,6 +11,10 @@
     lazy?: boolean;
     linkText?: string;
     caseStudyLink?: string;
+    /** Optional App Store listing URL, shown beside the site link */
+    appStore?: string;
+    /** Optional Google Play listing URL, shown beside the site link */
+    playStore?: string;
     featured?: boolean;
     /** Optional looping video (e.g. "/videos/foo.mp4") shown over the poster */
     video?: string;
@@ -24,9 +28,18 @@
     lazy = true,
     linkText = "View Site",
     caseStudyLink,
+    appStore,
+    playStore,
     featured = false,
     video,
   }: Props = $props();
+
+  const appLinks = $derived(
+    [
+      appStore && { href: appStore, label: "App Store" },
+      playStore && { href: playStore, label: "Google Play" },
+    ].filter((appLink) => !!appLink),
+  );
 
   let media: HTMLAnchorElement;
   let videoEl = $state<HTMLVideoElement>();
@@ -203,6 +216,39 @@
           <span class="sr-only"> (opens a new tab)</span>
         </a>
       </div>
+      {#each appLinks as appLink (appLink.label)}
+        <div>
+          <a
+            class={clsx(
+              "inline-flex gap-2 items-center font-semibold underline decoration-1 underline-offset-4 transition-colors",
+              featured
+                ? "text-white decoration-blue-300 hover:text-blue-200"
+                : "text-blue-700 decoration-blue-300 hover:text-blue-500",
+            )}
+            href={appLink.href}
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            <svg
+              fill="none"
+              height="1rem"
+              role="presentation"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              width="1rem"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect x="5" y="2" width="14" height="20" rx="2" ry="2" />
+              <line x1="12" y1="18" x2="12.01" y2="18" />
+            </svg>
+            {appLink.label}
+            <span class="sr-only"> listing for {title} (opens a new tab)</span>
+          </a>
+        </div>
+      {/each}
       {#if caseStudyLink}
         <div>
           <a
